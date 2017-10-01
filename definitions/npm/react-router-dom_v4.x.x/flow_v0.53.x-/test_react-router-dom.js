@@ -115,6 +115,17 @@ const Routed1: React$ComponentType<{| someProp: string |}> = withRouter(
   Unrouted
 );
 
+const UnroutedWithOptional: React$ComponentType<{|
+  ...ContextRouter,
+  optionalProp?: number
+|}> = () => <span />;
+
+const RoutedWithOptional1: React$ComponentType<{|
+  optionalProp?: number
+|}> = withRouter(UnroutedWithOptional);
+
+<RoutedWithOptional1 />
+
 // $ExpectError: This error bubbles up from the assignment in Routed2.
 const Unrouted2: React$ComponentType<{|
   ...ContextRouter,
